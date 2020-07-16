@@ -1,0 +1,8 @@
+signal {  real pH;}
+domain minmax;
+
+// After a certain delay the pH should always be greater than lower_lim
+formula Lower(int lower_lim, real delay, real final_time) = globally [delay,final_time] ( lower_lim <  pH);
+
+// After a certain delay the pH should always be lower than upper lim
+formula Upper(int upper_lim, real delay, real final_time) = globally [delay,final_time] ( pH <  upper_lim);
